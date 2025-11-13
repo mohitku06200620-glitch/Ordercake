@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cakewake - Premium Cake Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .cart-notification {
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                        <img src="cakwwake logo.png" alt="">
+                    </div>
+                    <span class="ml-3 text-2xl font-bold text-gray-800">Cakewake</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium">Home</a>
+                    <a href="#categories" class="text-gray-700 hover:text-pink-500 font-medium">Categories</a>
+                    <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+                </nav>
+
+                <!-- Right Icons -->
+                <div class="flex items-center space-x-6">
+                    <div class="hidden md:block relative">
+                        <i class="fas fa-search text-gray-600 cursor-pointer"></i>
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-shopping-cart text-gray-600 cursor-pointer"></i>
+                        <span class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-gray-600">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium py-2">Home</a>
+                    <a href="#categories" class="text-gray-700 hover:text-pink-500 font-medium py-2">Categories</a>
+                    <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium py-2">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium py-2">About</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium py-2">Contact</a>
+                    <div class="pt-4 border-t">
+                        <i class="fas fa-search text-gray-600"></i>
+                        <span class="ml-3">Search</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">Freshly Baked Happiness in Every Bite</h1>
+                    <p class="text-lg text-gray-700 mb-8">Indulge in our premium quality cakes, baked daily with love and the finest ingredients.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="order.html">
+                        <button class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                            Order Now
+                        </button>
+                    </a>
+                        <button class="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                            View Menu
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/864316ae-9114-4f55-a1ad-29dea669f649.png" alt="Beautiful three-tier wedding cake with floral decorations and elegant frosting" class="rounded-2xl shadow-2xl w-full" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Cake Categories</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our wide range of delicious cake categories, each crafted with perfection and love.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Category 1 -->
+                <div class="category-card bg-white rounded-2xl p-6 text-center shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-birthday-cake text-3xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Birthday Cakes</h3>
+                    <p class="text-gray-600">Celebrate special moments with our custom birthday cakes.</p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card bg-white rounded-2xl p-6 text-center shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-ring text-3xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Wedding Cakes</h3>
+                    <p class="text-gray-600">Elegant designs for your perfect wedding day.</p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card bg-white rounded-2xl p-6 text-center shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mug-hot text-3xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Cupcakes</h3>
+                    <p class="text-gray-600">Bite-sized delights in various flavors and toppings.</p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card bg-white rounded-2xl p-6 text-center shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cookie text-3xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Custom Cakes</h3>
+                    <p class="text-gray-600">Personalized cakes for any occasion or theme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Cakes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our most popular creations that customers love</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5172db40-2d53-481c-bb6f-774c6c88f2f7.png" alt="Chocolate fudge cake with rich ganache frosting and chocolate shavings" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm">
+                            Best Seller
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Chocolate Fantasy</h3>
+                        <p class="text-gray-600 mb-4">Rich chocolate cake with ganache frosting</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 250</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/235e2a8e-1ff8-4d98-b4aa-07f1fea9f0d5.png" alt="Vanilla bean cake with buttercream frosting and fresh strawberry decorations" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Vanilla Dream</h3>
+                        <p class="text-gray-600 mb-4">Classic vanilla with buttercream frosting</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 300</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37fa496f-0c33-4d62-b755-beda8492b894.png" alt="Red velvet cake with cream cheese frosting and red velvet crumbs" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Red Velvet Magic</h3>
+                        <p class="text-gray-600 mb-4">Cream cheese frosting perfection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 350</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="shopping.webp" alt="Red velvet cake with cream cheese frosting and red velvet crumbs" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                            Best 
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Chocolate Cake</h3>
+                        <p class="text-gray-600 mb-4">Cream cheese frosting perfection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 350</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="Cake s.jpg" alt="Red velvet cake with cream cheese frosting and red velvet crumbs" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Coutem Janamastmi cake </h3>
+                        <p class="text-gray-600 mb-4">Cream cheese frosting perfection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 350</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative">
+                        <img src="White-Forest-Cake.jpg" alt="Red velvet cake with cream cheese frosting and red velvet crumbs" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                            Best Seller
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">White Forest </h3>
+                        <p class="text-gray-600 mb-4">Cream cheese frosting perfection</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-pink-500">Rs 350</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/729c6c2f-8d22-4c95-84de-5333158bb9fc.png" alt="Professional baker decorating a cake in a modern bakery kitchen" class="rounded-2xl shadow-lg w-full" />
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About CakeWake</h2>
+                    <p class="text-gray-600 mb-6">
+                        Since 2010, Cakewake has been creating memorable moments through our delicious cakes. 
+                        Our master bakers use only the finest ingredients and traditional techniques to bring you 
+                        the perfect blend of taste and artistry.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <span class="font-semibold">Fresh Ingredients</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <span class="font-semibold">Custom Designs</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <span class="font-semibold">Free Delivery</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                                <span class="font-semibold">24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full"><img src="pic 2.png" alt=""></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">Regular Customer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The chocolate cake was absolutely divine! Moist, rich, and perfectly sweet. Will definitely order again!"</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full"><img src="Pic 1.jpg" alt=""></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Mike Chen</h4>
+                            <p class="text-gray-500 text-sm">Wedding Client</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Our wedding cake was stunning and tasted even better than it looked! Guests are still talking about it."</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <div class="testimonial-card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full"><img src="pic 3.png" alt=""></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Emily Davis</h4>
+                            <p class="text-gray-500 text-sm">Birthday Party</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The custom birthday cake for my daughter was perfect! The design was exactly what we wanted and it tasted amazing."</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Cakewake</h3>
+                    <p class="text-gray-300 mb-4">Creating sweet memories since 2010</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-pink-400"><i class="fab fa-facebook-f"> </i></a>
+                        <a href="https://www.instagram.com/cakewakeinsta/?hl=en" class="text-gray-300 hover:text-pink-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-pink-400"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-pink-400">Home</a></li>
+                        <li><a href="#categories" class="text-gray-300 hover:text-pink-400">Categories</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-pink-400">Products</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-pink-400">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> Tarwara, Siwan Road , Siwan, Bihar </p>
+                        <p class="text-gray-300"><i class="fas fa-phone mr-2"></i> +19 6203739080</p>
+                        <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> cakewake@gmail.com</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Opening Hours</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-300">Monday - Friday: 8:00 AM - 9:00 PM</p>
+                        <p class="text-gray-300">Saturday: 9:00 AM - 9:00 PM</p>
+                        <p class="text-gray-300">Sunday: 10:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">© 2024 Cakewake. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Add to Cart')) {
+                button.addEventListener('click', function() {
+                    const cartCount = document.querySelector('.absolute span');
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                    
+                    // Show notification
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg cart-notification';
+                    notification.textContent = 'Added to cart!';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 2000);
+                });
+            }
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
+
